@@ -7,7 +7,7 @@ const Header = () => {
         <div className="header-container">
           <div className="left-container">
             <a href="google.com"> Otaku Me </a>
-            <input placeholder="Search"/>
+            <input placeholder="Search" type="search"/>
             <button>Search</button>
           </div>
           <div className="right-container">

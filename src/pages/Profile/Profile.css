@@ -1,0 +1,16 @@
+.profile-container {
+  display: flex;
+}
+
+.profile-left-container {
+  width: 30%;
+  margin-left: 3vw;
+}
+
+.profile-right-container {
+  width: 70%;
+  margin-right: 3vw;
+
+  display: flex;
+  flex-wrap: wrap;
+}

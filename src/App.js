@@ -3,10 +3,10 @@ import "./App.css"
 import { Routes, Route } from 'react-router-dom'
 
 import SignIn from "./pages/SignIn/SignIn"
-import SignUp from './pages/SignUp'
-import Profile from './pages/Profile'
+import SignUp from './pages/SignUp/SignUp'
+import Profile from './pages/Profile/Profile'
 import Followers from "./pages/Followers"
-import Search from './pages/Search'
+import Search from './pages/Search/Search'
 
 function App() {
   return (

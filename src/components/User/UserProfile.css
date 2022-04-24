@@ -1,0 +1,48 @@
+.user-profile-container {
+  height: 40vh;
+  width: 100%;
+  margin: 10px;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-direction: column;
+
+  font-size: 100%;
+
+  transition: transform 500ms ease;
+}
+
+.user-profile-lists {
+  display: flex;
+  flex-direction: column;
+
+  font-size: 2.5vh;
+
+  margin: 2vh 0 0 0;
+}
+
+.user-profile-lists > a {
+  padding: 0.7vh 0 0.7vh 0;
+  text-decoration: none;
+
+  color:#0575E6;
+  font-weight: 700; 
+  
+  transition: transform 200ms ease;
+}
+
+
+.user-profile-lists > a:hover {
+  transform: scale(1.02)
+}
+
+
+.user-following-container {
+  display: flex;
+}
+
+.user-profile-container > img {
+  max-height: 50%;
+  margin: 0 10px 0 10px;
+}

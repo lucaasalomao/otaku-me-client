@@ -12,6 +12,11 @@
   background: linear-gradient(#fffc00,#ffffff);
 }
 
+.signin-container > .form-card-container > span {
+  margin-top: 2.9vh;
+  font-size: 1.5vh;
+}
+
 .form-card-container {
   display: flex;
   flex-direction: column;
@@ -69,4 +74,10 @@
 .otaku-me {
   display: flex;
   flex-direction: column;
+}
+
+.line{
+  width: 20vw;
+  border-bottom: 0.4vh solid #0575E6;
+  margin: 1.5vh 0 1.5vh 0;
 }
