@@ -1,10 +1,10 @@
-
 import UserCard from '../components/User/UserCard'
+import Header from "../components/Header/Header.js"
 
 function Followers() {
   return (
     <>
-      <div>This is Followers Page</div>
+      <Header/>
               
       <UserCard/>
     </>

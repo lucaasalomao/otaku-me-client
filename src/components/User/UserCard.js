@@ -1,4 +1,5 @@
 import UserImage from "../../../src/images/default-user.png"
+
 import "./UserCard.css"
 
 const UserCard = () => {
@@ -19,7 +20,6 @@ const UserCard = () => {
             <span>30 Animes</span>
           </div>
         </div>
-
       </div>
     </>
   )

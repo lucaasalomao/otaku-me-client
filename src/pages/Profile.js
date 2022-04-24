@@ -1,3 +1,5 @@
+import Header from "../components/Header/Header.js"
+
 import UserProfile from '../components/User/UserProfile'
 
 import FullList from '../components/Lists/FullList'
@@ -9,7 +11,7 @@ import ItemCard from '../components/Items/ItemCard'
 function Profile() {
     return (
       <>
-        <div>This is Profile Page</div>
+        <Header/>
         
         <UserProfile/>
 

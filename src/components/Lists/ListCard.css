@@ -1,14 +1,7 @@
-* {
-    margin:0 ;
-    padding:0 ;
-    box-sizing: border-box;
-    font-family: 'Voltaire', sans-serif;
-    font-size: 100%;
-}
-
 .list-card-container {
     height: 30vh;
     width: 12%;
+
     margin: 10px;
 
     border-radius: 10px;
@@ -21,10 +14,16 @@
     flex-direction: column;
 
     font-size: 90%;
+
+    transition: transform 500ms ease;
 }
 
 .list-card-container > img {
     max-height: 30%;
+}
+
+.list-card-container:hover {
+    transform: scale(1.03)
 }
 
 .list-card-data {
