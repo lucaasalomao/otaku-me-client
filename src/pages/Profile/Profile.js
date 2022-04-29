@@ -5,32 +5,28 @@ import ItemCard from '../../components/Items/ItemCard'
 
 import "./Profile.css"
 
-function Profile() {
-    return (
-      <>
-        <Header/>
+function Profile({ setUserProfile, setSearchedData, setRequestedListCard, setRequestedItemCard }) {
 
-        <div className="profile-container">
-          
-          <div className="profile-left-container">
-            <UserProfile/>
-          </div>
+  return (
+    <>
+      <Header setSearchedData={setSearchedData}/>
 
-          <div className="profile-right-container">
-            <ListCard/>
-            <ListCard/>
-            <ListCard/>        
-            <ItemCard/>
-            <ListCard/>        
-            <ItemCard/>
-            <ListCard/>        
-            <ItemCard/>
-            <ListCard/>        
-            <ItemCard/>
-          </div>
+      <div className="profile-container">
+        
+        <div className="profile-left-container">
+          <UserProfile setUserProfile={setUserProfile}/>
         </div>
-      </>
-    )
+
+        <div className="profile-right-container">
+          <ItemCard setRequestedItemCard={setRequestedItemCard}/>
+          <ListCard setRequestedListCard={setRequestedListCard}/>
+          <ListCard setRequestedListCard={setRequestedListCard}/>        
+          <ItemCard setRequestedItemCard={setRequestedItemCard}/>
+          <ItemCard setRequestedItemCard={setRequestedItemCard}/>
+        </div>
+      </div>
+    </>
+  )
   }
   
   export default Profile

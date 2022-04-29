@@ -3,21 +3,28 @@
   align-items: flex-start;
   justify-content: space-between;
 
-  font-size: 2.5vh;
+  font-size: 2.2vh;
 
   height: 10vh;
 
   background: linear-gradient(#fffc00,#ffffff);
 }
 
-.left-container > input
+.left-container > input,
+.left-container > select
  {
   width: 25vw;
-  margin: 0.5vw;
+  margin: 0 0 0 0.5vw;
   padding: 0.7vw;
 
   border: 2px solid #FFFDE4;
   border-radius: 5px;
+}
+
+.left-container > select
+ {
+  width: 7vw;
+  margin: 0 0.5vw 0 0;
 }
 
 .left-container > button {
@@ -43,6 +50,7 @@
 
 .left-container {
   margin-left: 3vw;
+  font-size: 3vh;
 }
 
 .right-container {
@@ -57,13 +65,22 @@
   text-decoration: none;
 
   color:#0575E6;
-  font-weight: 700; 
-  
-  transition: transform 200ms ease;
+  font-weight: 600; 
+
+  height: 3vh;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .left-container > button:hover,
 .left-container > a:hover,
 .right-container > a:hover {
-  transform: scale(1.02)
+  color:#1565C0;
+}
+
+.right-container > a > img
+ {
+  max-height: 100%
 }
