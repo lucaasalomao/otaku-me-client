@@ -1,7 +1,6 @@
 import Header from "../../components/Header/Header.js"
 import UserProfile from '../../components/User/UserProfile'
-import FullItem from "../../components/Items/FullItem.js"
-import FullList from "../../components/Lists/FullList.js"
+import ListView from "../../components/Lists/ListView.js"
 import apiUtils from "../../utils/api.utils.js"
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
@@ -9,20 +8,22 @@ import "./Profile.css"
 
 function Profile() {
 
-  const { userURL } = useParams()
-  const { list } = useParams()
-  const { item } = useParams()
-
+  const { userURL } = useParams
   const [userData, setUserData] = useState("")
+
+  const [listID,setListID] = useState("")
+  const [listData, setListData] = useState("")
 
   const getUserInfoByID = async () => {
     try {
       if (userURL) {
         const returnedData = await apiUtils.getSecondaryUserInfoFromDB(userURL)
         setUserData(returnedData)
-      } else {
+        setListData(returnedData.lists[0])
+      } {
         const returnedData = await apiUtils.getPrimaryUserInfoFromDB()
         setUserData(returnedData)
+        setListData(returnedData.lists[0])
       }
     } catch (error) {
       throw error.response
@@ -36,7 +37,18 @@ function Profile() {
     fetchData()
   },[])
 
-  console.log(userData)
+  const pickNewList = () => {
+    const pickedListFromUser = userData.lists.find(list => {
+      return list._id === listID
+    })
+    setListData(pickedListFromUser)
+  }
+
+  useEffect(()=>{
+    if (listID){
+      pickNewList()
+    }
+  },[listID])
 
   return (
     <>
@@ -45,12 +57,11 @@ function Profile() {
       <div className="profile-container">
         
         <div className="profile-left-container">
-          { userData && <UserProfile userData={userData} />}
+          { userData && <UserProfile userData={userData} setListID={setListID}/>}
         </div>
 
         <div className="profile-right-container">
-          { userData && <FullList key={list} list={list}/>}
-          { userData && <FullItem key={item} item={item}/>}
+          { listData && <ListView listData={listData} />}
         </div>
       </div>
     </>

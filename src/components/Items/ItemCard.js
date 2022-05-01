@@ -20,8 +20,8 @@ const ItemCard = ({ item }) => {
       <img src={ItemImage} alt="default item image"/>
 
       <div className="item-card-info">
-        <h2> {item.eventName} </h2>
-        <span> {item.eventComments.length} </span>
+        <h2> {item.itemName} </h2>
+        <span> {item.itemComments.length} </span>
       </div>
     
     </div>

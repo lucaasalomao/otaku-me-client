@@ -7,7 +7,7 @@ const ListCard = ({ list }) => {
   const navigate = useNavigate()
 
   const handleRequestList = () => {
-    navigate(`/me/list/${list._id}`)
+    navigate(`/me/list/${list.listName}`)
   }
 
   return (
@@ -22,8 +22,8 @@ const ListCard = ({ list }) => {
       <img src={ListImage} alt="default list image"/>
 
       <div className="list-card-info">
-        <h2> {list.agendaName} </h2>
-        <span> {list.agendaEvents.length} Items </span>
+        <h2> {list.listName} </h2>
+        <span> {list.listItems.length} Items </span>
       </div>
     
     </div>

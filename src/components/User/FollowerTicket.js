@@ -14,7 +14,7 @@ const FollowerTicket = ({ follower }) => {
     <>
       <div className="user-ticket-container" onClick={handleProfileChange}>
         <img src={UserImage} alt="default user image"/>
-        <h4>username</h4>
+        <h4> {follower.email} </h4>
       </div>
     </>
   )

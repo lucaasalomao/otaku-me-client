@@ -1,7 +1,9 @@
 
-const CommentCard = () => {
+const CommentCard = ({ comment }) => {
   return (
-    <div>This is CommentCard</div>
+    <>
+      <div>{comment.commentText}</div>
+    </>
   )
 }
 

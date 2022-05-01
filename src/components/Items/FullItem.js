@@ -1,10 +1,10 @@
 import CommentCard from '../CommentCard'
 
-const FullItem = ({ item }) => {
+const FullItem = ({ itemData }) => {
     return (
       <>
         <div>This is FullItem</div>
-        <div>{item.eventName}</div>
+        <div>{itemData.itemName}</div>
         < CommentCard />
       </>
     )
