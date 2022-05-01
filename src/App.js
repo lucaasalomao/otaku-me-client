@@ -1,7 +1,6 @@
 import "./App.css"
 
 import { Routes, Route } from 'react-router-dom'
-import { useState } from "react"
 
 import SignIn from "./pages/SignIn/SignIn"
 import SignUp from './pages/SignUp/SignUp'
@@ -12,22 +11,6 @@ import PrivateOutlet from "./components/PrivateOutlet"
 
 function App() {
 
-  /* this is the state created for the profile being accessed from any place on the application*/
-  const [userProfile,setUserProfile] = useState("")
-  console.log(userProfile)
-
-  /* this is the state created for the data returned from header search from any place on the application*/
-  const [searchedData,setSearchedData] = useState([])
-  console.log(searchedData)
-
-  /* this is the state created for the requested list from any place on the application*/
-  const [requestedList,setRequestedListCard] = useState([])
-  console.log(requestedList)
-
-  /* this is the state created for the requested item from any place on the application*/
-  const [requestedItem,setRequestedItemCard] = useState([])
-  console.log(requestedItem)
-
   return (
     <>
       <Routes>
@@ -35,28 +18,19 @@ function App() {
         <Route path='/signup' element={<SignUp/>} />
        
         <Route path='/me' element={<PrivateOutlet/>} >
-          <Route path='/me/profile' element={
-            <Profile 
-              setUserProfile={setUserProfile}
-              setSearchedData={setSearchedData}
-              setRequestedListCard={setRequestedListCard}
-              setRequestedItemCard={setRequestedItemCard}
-            /> }
-          />
-          <Route path='/me/followers' element={
-            <Followers
-              setUserProfile={setUserProfile}
-              setSearchedData={setSearchedData}
-            />}
-          />
-          <Route path='/me/search' element={
-            <Search
-              setUserProfile={setUserProfile}
-              setSearchedData={setSearchedData}
-              setRequestedListCard={setRequestedListCard}
-              setRequestedItemCard={setRequestedItemCard}
-            />}
-          />
+          
+          <Route path='/me'            element={ <Profile/> }/>
+          <Route path='/me/list/:list' element={ <Profile/> }/>
+          <Route path='/me/item/:item' element={ <Profile/> }/>
+
+          <Route path='/me/:userURL'       element={ <Profile/> }/>
+          <Route path='/me/:userURL/:list' element={ <Profile/> }/>
+          <Route path='/me/:userURL/:item' element={ <Profile/> }/>
+
+          <Route path='/me/followers' element={ <Followers/> }/>
+
+          <Route path='/me/search/:type/all' element={ <Search/> }/>
+          <Route path='/me/search/:type/:text' element={ <Search/> }/>
         </Route>
 
       </Routes>

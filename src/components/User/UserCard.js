@@ -3,13 +3,12 @@ import { useNavigate } from "react-router-dom"
 
 import "./UserCard.css"
 
-const UserCard = ({ setUserProfile }) => {
+const UserCard = ({ user }) => {
 
   const navigate = useNavigate()
 
   const handleProfileChange = () => {
-    setUserProfile("Lucas do card")
-    navigate("/me/profile")
+    navigate(`/me/iser/${user._id}`)
   }
 
   return (
@@ -19,14 +18,14 @@ const UserCard = ({ setUserProfile }) => {
         
         <div className="user">
           <div className="user-card-info">
-            <h4>Username</h4>
-            <span>User Description</span>
+            <h4>{user.email}</h4>
+            <span>{user.email}</span>
           </div>
 
           <div className="user-card-data">
-            <span>10 Lists</span>
-            <span>20 Followers</span>
-            <span>30 Animes</span>
+            <span>{user.agendas}</span>
+            <span>{user.friends}</span>
+            <span>{user.events}</span>
           </div>
         </div>
       </div>

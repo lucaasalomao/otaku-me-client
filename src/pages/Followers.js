@@ -1,12 +1,12 @@
 import UserCard from '../components/User/UserCard'
 import Header from "../components/Header/Header.js"
 
-function Followers({ setUserProfile, setSearchedData }) {
+function Followers() {
   return (
     <>
-      <Header setSearchedData={setSearchedData}/>
+      <Header/>
               
-      <UserCard setUserProfile={setUserProfile}/>
+      <div>Lo encontré, lo encontré bro! biiiiih</div>
     </>
   )
 }

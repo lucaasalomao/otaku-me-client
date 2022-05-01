@@ -2,13 +2,12 @@ import ItemImage from "../../../src/images/default-item.png"
 import { useNavigate } from "react-router-dom"
 import "./ItemCard.css"
 
-const ItemCard = ({ setRequestedItemCard }) => {
+const ItemCard = ({ item }) => {
 
   const navigate = useNavigate()
 
   const handleRequestItem = () => {
-    setRequestedItemCard("item do card")
-    navigate("/me/profile")
+    navigate(`/me/item/${item._id}`)
   }
 
   return (
@@ -21,8 +20,8 @@ const ItemCard = ({ setRequestedItemCard }) => {
       <img src={ItemImage} alt="default item image"/>
 
       <div className="item-card-info">
-        <h2> Item Name </h2>
-        <span> 20 Likes </span>
+        <h2> {item.eventName} </h2>
+        <span> {item.eventComments.length} </span>
       </div>
     
     </div>

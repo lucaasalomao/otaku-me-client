@@ -2,13 +2,12 @@ import ListImage from "../../../src/images/default-list.png"
 import { useNavigate } from "react-router-dom"
 import "./ListCard.css"
 
-const ListCard = ({ setRequestedListCard }) => {
+const ListCard = ({ list }) => {
 
   const navigate = useNavigate()
 
   const handleRequestList = () => {
-    setRequestedListCard("list do card")
-    navigate("/me/profile")
+    navigate(`/me/list/${list._id}`)
   }
 
   return (
@@ -23,8 +22,8 @@ const ListCard = ({ setRequestedListCard }) => {
       <img src={ListImage} alt="default list image"/>
 
       <div className="list-card-info">
-        <h2> List Name </h2>
-        <span> 20 Items </span>
+        <h2> {list.agendaName} </h2>
+        <span> {list.agendaEvents.length} Items </span>
       </div>
     
     </div>

@@ -27,7 +27,6 @@ class Api {
       (error) => {
         if (error.response.status = 401) {
           localStorage.removeItem('token')
-          localStorage.removeItem('user')
         }
         throw error
       }
@@ -39,7 +38,6 @@ class Api {
     try {
       const { data } = await this.api.post("/signin", user)
       localStorage.setItem('token', data.token)
-      localStorage.setItem('userInfo', JSON.stringify(data.userInfo))
       return data
     } catch (error) {
       throw error.response
@@ -55,9 +53,36 @@ class Api {
     }
   }
 
-  getAllItems = async () => {
+  getPrimaryUserInfoFromDB = async () => {
     try {
-      const { data } = await this.api.get("/event/search/all")
+      const { data } = await this.api.get(`/user`)
+      return data
+    } catch (error) {
+      throw error.response
+    }
+  }
+
+  getSecondaryUserInfoFromDB = async (userID) => {
+    try {
+      const { data } = await this.api.get(`/user/${userID}`)
+      return data
+    } catch (error) {
+      throw error.response
+    }
+  }
+
+  getAllByTypeFromDB = async (type) => {
+    try {
+      const { data } = await this.api.get(`/${type}/search/all`)
+      return data
+    } catch (error) {
+      throw error.response
+    }
+  }
+
+  getAllByTypeAndTextFromDB = async (type,text) => {
+    try {
+      const { data } = await this.api.get(`/${type}/search/${text}`)
       return data
     } catch (error) {
       throw error.response

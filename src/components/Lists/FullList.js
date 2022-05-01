@@ -1,10 +1,10 @@
 import CommentCard from '../CommentCard'
 
-const FullList = () => {
+const FullList = ({ list }) => {
     return (
       <>
         <div>This is FullList</div>
-
+        <div>{list.agendaName}</div>
         < CommentCard />
       </>
     )

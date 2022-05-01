@@ -18,7 +18,7 @@ const SignIn = () => {
       await api.signin({email, password})
       setEmail("")
       setPassowrd("")
-      navigate('/me/profile')
+      navigate('/me')
     } catch (error) {
       throw error.response
     }

@@ -1,9 +1,8 @@
-import { useNavigate } from "react-router-dom"
 import UserImage from "../../../src/images/default-user.png"
-import UserTicket from "./UserTicket"
+import FollowerTicket from "./FollowerTicket"
 import "./UserProfile.css"
 
-const UserProfile = ({ setUserProfile }) => {
+const UserProfile = ({ userData }) => {
 
   return (
     <>
@@ -11,23 +10,25 @@ const UserProfile = ({ setUserProfile }) => {
         <img src={UserImage} alt="default user image"/>
           
         <div className="user-profile-data">
-          <h4>Username</h4>
+          <h4>{ userData.email }</h4>
           <span>User Description</span>
         </div>
 
         <h4>Lists</h4>
 
         <div className="user-profile-lists">
-          <a href="/me/profile">10 Lists</a>
-          <a href="/me/profile">20 Followers</a>
-          <a href="/me/profile">30 Animes</a>
+          { userData.agendas.map( (list) => {
+            <div> { list } </div>
+          })}
         </div>
       </div>
 
       <h4>Following</h4>
 
       <div className="user-following-container">
-        < UserTicket setUserProfile={setUserProfile}/> 
+        { userData.friends.map( (follower) => {
+            < FollowerTicket follower={follower} />
+        })}
       </div>
     </>
   )

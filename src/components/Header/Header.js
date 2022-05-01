@@ -5,22 +5,20 @@ import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import "./Header.css"
 
-const Header = ({ setSearchedData }) => {
+const Header = () => {
 
   const navigate = useNavigate()
 
   const [text,setText] = useState("")
-  const [type,setType] = useState("items")
+  const [type,setType] = useState("list")
 
-  const getAllElementsByTypeFromDB = async (selectedType, selectedText) => {
-/*     try {
-      let returnedData = await api.getAllItemsFromDB()
-      setText("")
-      return returnedData
-    } catch (error) {
-      throw error.response
-    } */
-    setSearchedData(selectedText)
+  const handleSearch = async () => {
+    if (text) {
+      navigate(`/me/search/${type}/${text}`)
+      setText("")  
+    } else {
+      navigate(`/me/search/${type}/all`) 
+    }
   }
 
   const handleLogout = () => {
@@ -29,18 +27,12 @@ const Header = ({ setSearchedData }) => {
     navigate("/")
   }
 
-  const handleSearch = () => {
-    getAllElementsByTypeFromDB(type,text)
-    setText("")
-    navigate("/me/search")
-  }
-
   const handleFollowers = () => {
     navigate("/me/followers")
   }
 
   const handleHome = () => {
-    navigate("/me/profile")
+    navigate("/me")
   }
 
   return (
@@ -51,11 +43,11 @@ const Header = ({ setSearchedData }) => {
 
           <a onClick={handleHome}> Otaku Me </a>
 
-          <input placeholder="Search" type="search" value={text} onChange={(e) => setText(e.target.value)}/>
+          <input placeholder="Search" type="search" onChange={(e) => setText(e.target.value)}/>
           <select name="filter" id="filter" onChange={(e) => setType(e.target.value)}>
-            <option value={type}>Items</option>
-            <option value="lists">Lists</option>  
-            <option value="users">Users</option>
+            <option value="list">Lists</option>
+            <option value="item">Items</option> 
+            <option value="user">Users</option>
           </select>
           <button onClick={handleSearch}>Search</button>
 
