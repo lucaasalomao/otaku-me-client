@@ -25,11 +25,11 @@ class Api {
     this.api.interceptors.response.use(
       (response) => response,
       (error) => {
-        if (error.response.status = 401) {
+        if (error.response.status === 401) {
           localStorage.removeItem('token')
           localStorage.removeItem('username')
-          throw error
         }
+        throw error
       }
     )
 
