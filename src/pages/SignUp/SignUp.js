@@ -18,9 +18,9 @@ const SignUp = () => {
           />
 
           <input
-            id="email"
-            type="email"
-            placeholder="Email"
+            id="username"
+            type="username"
+            placeholder="Username"
           />
 
           <input

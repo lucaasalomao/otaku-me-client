@@ -1,6 +1,5 @@
 import UserImage from "../../../src/images/default-user.png"
 import { useNavigate } from "react-router-dom"
-
 import "./UserCard.css"
 
 const UserCard = ({ user }) => {
@@ -8,8 +7,10 @@ const UserCard = ({ user }) => {
   const navigate = useNavigate()
 
   const handleProfileChange = () => {
-    navigate(`/me/iser/${user._id}`)
+    navigate(`/me/${user.username}`)
   }
+
+  console.log(user)
 
   return (
     <>
@@ -18,14 +19,8 @@ const UserCard = ({ user }) => {
         
         <div className="user">
           <div className="user-card-info">
-            <h4>{user.email}</h4>
-            <span>{user.email}</span>
-          </div>
-
-          <div className="user-card-data">
-            <span>{user.agendas}</span>
-            <span>{user.friends}</span>
-            <span>{user.events}</span>
+            <h4>{user.username}</h4>
+            <span>user description</span>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@ import UserImage from "../../../src/images/default-user.png"
 import FollowerTicket from "./FollowerTicket"
 import "./UserProfile.css"
 
-const UserProfile = ({ userData, setListID }) => { 
+const UserProfile = ({ userData, setListID }) => {
 
   const handleSetListID = (event) => {
     event.preventDefault()
@@ -14,7 +14,7 @@ const UserProfile = ({ userData, setListID }) => {
       <div className="user-profile-container">
         <img src={UserImage} alt="default user image"/>
         <div className="user-profile-data">
-          <h4>{ userData.email }</h4>
+          <h4>{ userData.username }</h4>
           <span>User Description</span>
         </div>
 
@@ -28,7 +28,7 @@ const UserProfile = ({ userData, setListID }) => {
 
       <h4>Following</h4>
       <div className="user-followers-container">
-        { userData.followers.map( (follower) => {
+        { userData.following.map( (follower) => {
           return < FollowerTicket key={follower._id} follower={follower} />
         })}
       </div>

@@ -8,32 +8,42 @@ import Profile from './pages/Profile/Profile'
 import Followers from "./pages/Followers"
 import Search from './pages/Search/Search'
 import PrivateOutlet from "./components/PrivateOutlet"
+import Header from "../src/components/Header/Header.js"
+import { useEffect, useState } from "react"
 
 function App() {
 
+  const { pathname } = window.location
+
+  const [path,setPath] = useState("")
+
+  useEffect(()=>{
+    setPath(pathname)
+  })
+
   return (
     <>
+      {(path.includes('me')) && <Header />}
+
       <Routes>
+
         <Route path='/' element={<SignIn/>} />
         <Route path='/signup' element={<SignUp/>} />
        
         <Route path='/me' element={<PrivateOutlet/>} >
+
+          <Route path='/me/:username'             element={ <Profile/> }/>
+          <Route path='/me/:username/:list'       element={ <Profile/> }/>
+          <Route path='/me/:username/:list/:item' element={ <Profile/> }/>
           
-          <Route path='/me'            element={ <Profile/> }/>
-          <Route path='/me/list/:list' element={ <Profile/> }/>
-          <Route path='/me/item/:item' element={ <Profile/> }/>
+          <Route path='/me/:username/followers'   element={ <Followers/> }/>
 
-          <Route path='/me/:userURL'       element={ <Profile/> }/>
-          <Route path='/me/:userURL/:list' element={ <Profile/> }/>
-          <Route path='/me/:userURL/:item' element={ <Profile/> }/>
-
-          <Route path='/me/followers' element={ <Followers/> }/>
-
-          <Route path='/me/search/:type/all' element={ <Search/> }/>
-          <Route path='/me/search/:type/:text' element={ <Search/> }/>
+          <Route path='/me/search/:type/all'      element={ <Search/> }/>
+          <Route path='/me/search/:type/:text'    element={ <Search/> }/>
         </Route>
 
       </Routes>
+      
     </>
   )
 }

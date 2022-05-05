@@ -8,9 +8,15 @@
 }
 
 .profile-right-container {
-  width: 70%;
+  width: 20%;
   margin-right: 3vw;
 
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.profile-right-container > button ,
+.profile-right-container > div > button {
+  height: 10vh;
+  width: 100%;
 }

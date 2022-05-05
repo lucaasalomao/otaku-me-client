@@ -1,14 +1,44 @@
-import UserCard from '../components/User/UserCard'
-import Header from "../components/Header/Header.js"
+import { useState, useEffect } from "react"
+import apiUtils from "../utils/api.utils.js"
+import UserCard from '../components/User/UserCard.js'
+import CommentCard from '../components/CommentCard'
 
-function Followers() {
+function Followers(){
+
+  const [commentsData, setCommentsData] = useState([])
+  const [followersData, setFollowersData] = useState([])
+
+  const getActivityData = async () => {
+    const { comments, followers } = await apiUtils.getUserFollowersInfoFromDB()
+    setCommentsData(comments)
+    setFollowersData(followers)
+  }
+
+  useEffect(()=>{
+    async function fetchData() {
+      await getActivityData()
+    }
+    fetchData()
+  },[])
+
+  console.log(commentsData)
+
   return (
     <>
-      <Header/>
-              
-      <div>Lo encontré, lo encontré bro! biiiiih</div>
-    </>
+      <div className="search-container">
+        {followersData.map((user)=>{
+          return <UserCard key={user._id} user={user}/>  
+        })}
+      </div>
+
+      {
+        commentsData.map( (comment) => {
+          return <CommentCard key={comment._id} comment={comment} />
+        })
+      }
+  </>
   )
+
 }
 
 export default Followers

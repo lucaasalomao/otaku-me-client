@@ -1,4 +1,3 @@
-import Header from "../../components/Header/Header.js"
 import UserProfile from '../../components/User/UserProfile'
 import ListView from "../../components/Lists/ListView.js"
 import apiUtils from "../../utils/api.utils.js"
@@ -8,21 +7,20 @@ import "./Profile.css"
 
 function Profile() {
 
-  const { userURL } = useParams
+  const { username } = useParams()
   const [userData, setUserData] = useState("")
 
+  const { list } = useParams()
   const [listID,setListID] = useState("")
   const [listData, setListData] = useState("")
 
-  const getUserInfoByID = async () => {
+  const getUserInfoByUsername = async () => {
     try {
-      if (userURL) {
-        const returnedData = await apiUtils.getSecondaryUserInfoFromDB(userURL)
-        setUserData(returnedData)
-        setListData(returnedData.lists[0])
-      } {
-        const returnedData = await apiUtils.getPrimaryUserInfoFromDB()
-        setUserData(returnedData)
+      const returnedData = await apiUtils.getUserInfoFromDB(username)
+      setUserData(returnedData)
+      if (list) {
+        setListID(list)
+      } else {
         setListData(returnedData.lists[0])
       }
     } catch (error) {
@@ -32,10 +30,10 @@ function Profile() {
 
   useEffect(()=>{
     async function fetchData() {
-      await getUserInfoByID()
+      await getUserInfoByUsername()
     }
     fetchData()
-  },[])
+  },[username])
 
   const pickNewList = () => {
     const pickedListFromUser = userData.lists.find(list => {
@@ -52,8 +50,6 @@ function Profile() {
 
   return (
     <>
-      <Header/>
-
       <div className="profile-container">
         
         <div className="profile-left-container">

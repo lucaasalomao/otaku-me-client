@@ -9,16 +9,14 @@ const SignIn = () => {
 
   let navigate = useNavigate()
 
-  const [email, setEmail] = useState("")
+  const [username, setUsername] = useState("")
   const [password, setPassowrd] = useState("")
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await api.signin({email, password})
-      setEmail("")
-      setPassowrd("")
-      navigate('/me')
+      await api.signin({username, password})
+      navigate(`/me/${username}`)
     } catch (error) {
       throw error.response
     }
@@ -35,11 +33,11 @@ const SignIn = () => {
         <form className="form-card-container" onSubmit={handleSubmit}>
           
           <input
-            id="email"
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            id="username"
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
 
           <input

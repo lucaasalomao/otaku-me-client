@@ -27,6 +27,7 @@ class Api {
       (error) => {
         if (error.response.status = 401) {
           localStorage.removeItem('token')
+          localStorage.removeItem('username')
         }
         throw error
       }
@@ -38,6 +39,7 @@ class Api {
     try {
       const { data } = await this.api.post("/signin", user)
       localStorage.setItem('token', data.token)
+      localStorage.setItem('username', data.username)
       return data
     } catch (error) {
       throw error.response
@@ -53,18 +55,9 @@ class Api {
     }
   }
 
-  getPrimaryUserInfoFromDB = async () => {
+  getUserInfoFromDB = async (username) => {
     try {
-      const { data } = await this.api.get(`/user`)
-      return data
-    } catch (error) {
-      throw error.response
-    }
-  }
-
-  getSecondaryUserInfoFromDB = async (userID) => {
-    try {
-      const { data } = await this.api.get(`/user/${userID}`)
+      const { data } = await this.api.get(`/user/${username}`)
       return data
     } catch (error) {
       throw error.response
@@ -83,6 +76,15 @@ class Api {
   getAllByTypeAndTextFromDB = async (type,text) => {
     try {
       const { data } = await this.api.get(`/${type}/search/${text}`)
+      return data
+    } catch (error) {
+      throw error.response
+    }
+  }
+
+  getUserFollowersInfoFromDB = async () => {
+    try {
+      const { data } = await this.api.get(`/user/following/activity`)
       return data
     } catch (error) {
       throw error.response

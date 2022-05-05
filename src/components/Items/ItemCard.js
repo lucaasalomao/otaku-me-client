@@ -7,7 +7,7 @@ const ItemCard = ({ item }) => {
   const navigate = useNavigate()
 
   const handleRequestItem = () => {
-    navigate(`/me/item/${item._id}`)
+    navigate(`/me/${item.itemCreator.username}/${item.itemList}/${item._id}`)
   }
 
   return (
@@ -21,7 +21,7 @@ const ItemCard = ({ item }) => {
 
       <div className="item-card-info">
         <h2> {item.itemName} </h2>
-        <span> {item.itemComments.length} </span>
+        <span> {item.itemComments && item.itemComments.length} Comments </span>
       </div>
     
     </div>

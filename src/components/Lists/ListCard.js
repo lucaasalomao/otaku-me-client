@@ -7,7 +7,7 @@ const ListCard = ({ list }) => {
   const navigate = useNavigate()
 
   const handleRequestList = () => {
-    navigate(`/me/list/${list.listName}`)
+    navigate(`/me/${list.listCreator.username}/${list._id}`)
   }
 
   return (
@@ -23,7 +23,7 @@ const ListCard = ({ list }) => {
 
       <div className="list-card-info">
         <h2> {list.listName} </h2>
-        <span> {list.listItems.length} Items </span>
+        <span> {list.listItems && list.listItems.length} Items </span>
       </div>
     
     </div>
