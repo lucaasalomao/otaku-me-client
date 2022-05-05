@@ -28,8 +28,8 @@ class Api {
         if (error.response.status = 401) {
           localStorage.removeItem('token')
           localStorage.removeItem('username')
+          throw error
         }
-        throw error
       }
     )
 
