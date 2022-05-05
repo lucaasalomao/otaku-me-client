@@ -35,16 +35,12 @@ function Profile() {
     fetchData()
   },[username])
 
-  const pickNewList = () => {
-    const pickedListFromUser = userData.lists.find(list => {
-      return list._id === listID
-    })
-    setListData(pickedListFromUser)
-  }
-
   useEffect(()=>{
     if (listID){
-      pickNewList()
+      const pickedListFromUser = userData.lists.find(list => {
+        return list._id === listID
+      })
+      setListData(pickedListFromUser)
     }
   },[listID])
 
