@@ -13,17 +13,9 @@ import { useEffect, useState } from "react"
 
 function App() {
 
-  const { pathname } = window.location
-
-  const [path,setPath] = useState("")
-
-  useEffect(()=>{
-    setPath(pathname)
-  })
-
   return (
     <>
-      {(path.includes('me')) && <Header />}
+      <Header />
 
       <Routes>
 

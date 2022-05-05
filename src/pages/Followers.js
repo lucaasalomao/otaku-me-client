@@ -21,8 +21,6 @@ function Followers(){
     fetchData()
   },[])
 
-  console.log(commentsData)
-
   return (
     <>
       <div className="search-container">
