@@ -12,7 +12,7 @@ const UserProfile = ({ userData, setListID }) => {
   return (
     <>
       <div className="user-profile-container">
-        <img src={UserImage} alt="default user image"/>
+        <img src={UserImage} alt="default user"/>
         <div className="user-profile-data">
           <h4>{ userData.username }</h4>
           <span>User Description</span>

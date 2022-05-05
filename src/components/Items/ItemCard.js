@@ -17,7 +17,7 @@ const ItemCard = ({ item }) => {
         {/* <span> Item Category </span> */}
       </div>
 
-      <img src={ItemImage} alt="default item image"/>
+      <img src={ItemImage} alt="default item"/>
 
       <div className="item-card-info">
         <h2> {item.itemName} </h2>

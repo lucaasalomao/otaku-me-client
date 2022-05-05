@@ -36,7 +36,7 @@ const ListView = ({ listData }) => {
 
   return (
     <>
-      <img src={ListImage} alt="default list image"/>
+      <img src={ListImage} alt="default list"/>
       
       <div>{listData.listName}</div>
 
@@ -49,7 +49,7 @@ const ListView = ({ listData }) => {
       </div>
 
       {
-        commentsList.length != 0 &&
+        commentsList.length !== 0 &&
         commentsList.map( (comment) => {
           return <CommentCard key={comment._id} comment={comment} />
         })

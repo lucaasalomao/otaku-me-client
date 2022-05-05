@@ -57,20 +57,20 @@ const Header = () => {
           </div>
           <div className="right-container">
 
-            <a onClick={handleHome}>
-              <img src={HomeIcon} alt="default home image"/>   
+            <button onClick={handleHome}>
+              <img src={HomeIcon} alt="default home"/>   
               <span>Home</span>
-            </a>
+            </button>
 
-            <a onClick={handleFollowers}>
-              <img src={FollowersIcon} alt="default followers image"/>
+            <button onClick={handleFollowers}>
+              <img src={FollowersIcon} alt="default followers"/>
               <span>Followers</span>
-            </a>
+            </button>
             
-            <a onClick={handleLogout}>
-              <img src={LogoutIcon} alt="default logout image"/>
+            <button onClick={handleLogout}>
+              <img src={LogoutIcon} alt="default logout"/>
               <span>Logout</span>
-            </a>
+            </button>
             
           </div>
         </div>

@@ -19,7 +19,7 @@ const ListCard = ({ list }) => {
         <span>30 Animes</span> */}
       </div>
 
-      <img src={ListImage} alt="default list image"/>
+      <img src={ListImage} alt="default list"/>
 
       <div className="list-card-info">
         <h2> {list.listName} </h2>

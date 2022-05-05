@@ -15,7 +15,7 @@ const UserCard = ({ user }) => {
   return (
     <>
       <div className="user-card-container" onClick={handleProfileChange} >
-        <img src={UserImage} alt="default user image"/>
+        <img src={UserImage} alt="default user"/>
         
         <div className="user">
           <div className="user-card-info">

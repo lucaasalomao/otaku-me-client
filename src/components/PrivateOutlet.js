@@ -4,7 +4,7 @@ import apiUtils from '../utils/api.utils'
 const PrivateOutlet = () => {
   const authToken = localStorage.getItem('token')
 
-  if (authToken.split(".").length != 3) {
+  if (authToken.split(".").length !== 3) {
     return <Navigate to='/'/>
   }
 
