@@ -9,7 +9,6 @@ import Followers from "./pages/Followers"
 import Search from './pages/Search/Search'
 import PrivateOutlet from "./components/PrivateOutlet"
 import Header from "../src/components/Header/Header.js"
-import { useEffect, useState } from "react"
 
 function App() {
 

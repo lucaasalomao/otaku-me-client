@@ -44,7 +44,7 @@ const Header = () => {
         <div className="header-container">
           <div className="left-container">
 
-            <a onClick={handleHome}> Otaku Me </a>
+            <h4> Otaku Me </h4>
 
             <input placeholder="Search" type="search" onChange={(e) => setText(e.target.value)}/>
             <select onChange={(e) => setType(e.target.value)}>
