@@ -28,7 +28,10 @@ const ListView = ({ listData }) => {
 
   useEffect(()=>{
     if (item) {
-      filterCommentsByItemID(item)
+      const selectedComments = listData.listComments.filter((comment)=>{
+        return comment.commentOnItem === item
+      })
+      setCommentsList(selectedComments)
     } else {
       setCommentsList([...listData.listComments])
     }
