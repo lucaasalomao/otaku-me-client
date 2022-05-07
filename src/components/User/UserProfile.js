@@ -75,8 +75,7 @@ const UserProfile = ({ userData, setListID }) => {
     async function fetchData() {
       await verifyFollowerStatus()
     }
-    
-    await fetchData()
+    fetchData()
 
     const localUser = localStorage.getItem('username')
     if (username === localUser) {
