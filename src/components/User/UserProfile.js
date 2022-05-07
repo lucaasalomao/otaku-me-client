@@ -85,7 +85,7 @@ const UserProfile = ({ userData, setListID }) => {
     }
     fetchData()
     verifyEditPermission() 
-  },[username,verifyFollowerStatus,verifyEditPermission])
+  },[username])
   
   return (
     <>
