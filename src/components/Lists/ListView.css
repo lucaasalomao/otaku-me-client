@@ -1,0 +1,116 @@
+.list-container {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  width: 40vw;
+}
+
+.create-item > input {  
+  border: 0.2px solid #29B3FF;
+  opacity: 0.9;
+  border-radius: 10px;
+  padding: 5px 15px;
+  outline: none;
+  width: 30%;
+  height: 1.5vh;
+  box-shadow: 15px 15px 50px -30px #0575E6;
+  font-size: 1.3vh;
+}
+
+.create-comment > input {  
+  border: 0.2px solid #29B3FF;
+  opacity: 0.9;
+  border-radius: 10px;
+  padding: 5px 15px;
+  outline: none;
+  width: 57%;
+  height: 1.5vh;
+  box-shadow: 15px 15px 50px -30px #0575E6;
+  font-size: 1.3vh;
+}
+
+.create-item,
+.create-comment {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  flex-direction: row;
+}
+  
+.create-item > input::placeholder,
+.create-comment > input::placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+.create-item > button,
+.create-comment > button {
+  margin: 5px;
+  font-size: 1.5vh;
+  color:#0575E6;
+
+  height: 4.5vh;
+  border: none;
+  transition: transform 500ms ease;
+}
+
+.create-item > button:hover,
+.create-comment > button:hover {
+  text-decoration: underline;
+}
+
+.items > button {
+  margin: 0.2vh 0.4vw;
+}
+
+.comment-container {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  width: 30vw;
+}
+
+.comment-list {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: flex-end;
+}
+
+.items {
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	align-content: flex-start;
+}
+
+.item {
+  display: flex;
+	flex-direction: column;
+  align-items: center;
+  margin: 15px;
+  width: 8vw;
+}
+
+.item > img {
+  max-height: 12vh;
+  margin: 10px;
+}
+
+.item > button {
+  margin: 5px;
+  font-size: 1.5vh;
+  color:#0575E6;
+
+  height: 4.5vh;
+  border: none;
+}
+
+.item:hover {
+  border: 1.3px solid #29B3FF;
+  font-size: 1.7vh;
+  border-radius: 3px;
+  box-shadow: 30px 30px 50px -30px #0575E6;  
+}

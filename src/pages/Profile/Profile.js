@@ -1,17 +1,18 @@
 import UserProfile from '../../components/User/UserProfile'
 import ListView from "../../components/Lists/ListView.js"
+import Header from "../../components/Header/Header.js"
 import apiUtils from "../../utils/api.utils.js"
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import "./Profile.css"
 
 function Profile() {
-
-  const { username } = useParams()
-  const [userData, setUserData] = useState("")
-
+  
   const { list } = useParams()
+  const { username } = useParams()
+  
   const [listID,setListID] = useState("")
+  const [userData, setUserData] = useState("")
   const [listData, setListData] = useState("")
 
   const getUserInfoByUsername = async () => {
@@ -33,19 +34,24 @@ function Profile() {
       await getUserInfoByUsername()
     }
     fetchData()
-  },[username])
+  },[username,listID])
+
+  const pickNewList = () => {
+    const pickedListFromUser = userData.lists.find(list => {
+      return list._id === listID
+    })
+    setListData(pickedListFromUser)
+  }
 
   useEffect(()=>{
     if (listID){
-      const pickedListFromUser = userData.lists.find(list => {
-        return list._id === listID
-      })
-      setListData(pickedListFromUser)
+      pickNewList()
     }
   },[listID])
 
   return (
     <>
+      <Header />
       <div className="profile-container">
         
         <div className="profile-left-container">
@@ -53,7 +59,7 @@ function Profile() {
         </div>
 
         <div className="profile-right-container">
-          { listData && <ListView listData={listData} />}
+          { listData && <ListView listData={listData} setListID={setListID}/>}
         </div>
       </div>
     </>

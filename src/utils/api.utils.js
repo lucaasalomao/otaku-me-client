@@ -55,6 +55,15 @@ class Api {
     }
   }
 
+  verifyFollower = async () => {
+    try {
+      const { data } = await this.api.get(`/user/following/check`)
+      return data
+    } catch (error) {
+      throw error.response
+    }
+  }
+
   getUserInfoFromDB = async (username) => {
     try {
       const { data } = await this.api.get(`/user/${username}`)
@@ -90,6 +99,61 @@ class Api {
       throw error.response
     }
   }
+
+  followUser = async (username) => {
+    try {
+      const { data } = await this.api.post(`/user/follow/${username}`)
+      return data
+    } catch (error) {
+      throw error.response
+    }
+  }
+
+  unfollowUser = async (username) => {
+    try {
+      const { data } = await this.api.post(`/user/unfollow/${username}`)
+      return data
+    } catch (error) {
+      throw error.response
+    }
+  }
+
+  createNewListOnDB = async (list) => {
+    try {
+      const { data } = await this.api.post(`/list`, list)
+      return data
+    } catch (error) {
+      throw error.response
+    }
+  }
+
+  createNewItemOnDB = async (listID,item) => {
+    try {
+      const { data } = await this.api.post(`/item/${listID}`, item)
+      return data
+    } catch (error) {
+      throw error.response
+    }
+  }
+
+  createNewCommentInItem = async (listID,itemID,comment) => {
+    try {
+      const { data } = await this.api.post(`/comment/${listID}/${itemID}`, comment)
+      return data
+    } catch (error) {
+      throw error.response
+    }
+  }
+
+  deleteComment = async (commentID) => {
+    try {
+      const { data } = await this.api.delete(`/comment/${commentID}`)
+      return data
+    } catch (error) {
+      throw error.response
+    }
+  }
+
 
 }
 

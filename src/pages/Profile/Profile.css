@@ -1,22 +1,11 @@
 .profile-container {
   display: flex;
-}
-
-.profile-left-container {
-  width: 30%;
   margin-left: 3vw;
+  margin-right: 3vw;
+  width: 90%;
 }
 
 .profile-right-container {
-  width: 20%;
-  margin-right: 3vw;
-
   display: flex;
-  flex-direction: column;
-}
-
-.profile-right-container > button ,
-.profile-right-container > div > button {
-  height: 10vh;
-  width: 100%;
+  flex-direction: row;
 }

@@ -1,8 +1,9 @@
-import HomeIcon from "../../../src/images/home-icon.png"
-import FollowersIcon from "../../../src/images/followers-icon.png"
-import LogoutIcon from "../../../src/images/logout-icon.png"
+import HomeIcon from "../../../src/images/home.svg"
+import FeedIcon from "../../../src/images/feed.svg"
+import LogoutIcon from "../../../src/images/logout.svg"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
+import otakuImage from "../../images/otaku.svg"
 
 import "./Header.css"
 
@@ -43,35 +44,19 @@ const Header = () => {
       {
         <div className="header-container">
           <div className="left-container">
-
-            <h4> Otaku Me </h4>
-
+            <img src={otakuImage} alt="otaku" onClick={handleHome}/>
             <input placeholder="Search" type="search" onChange={(e) => setText(e.target.value)}/>
             <select onChange={(e) => setType(e.target.value)}>
-              <option value="user">Users</option>
+              <option value="user" defaultValue>Users</option>
               <option value="list">Lists</option> 
               <option value="item">Items</option>
             </select>
             <button onClick={handleSearch}>Search</button>
-
           </div>
           <div className="right-container">
-
-            <button onClick={handleHome}>
-              <img src={HomeIcon} alt="default home"/>   
-              <span>Home</span>
-            </button>
-
-            <button onClick={handleFollowers}>
-              <img src={FollowersIcon} alt="default followers"/>
-              <span>Followers</span>
-            </button>
-            
-            <button onClick={handleLogout}>
-              <img src={LogoutIcon} alt="default logout"/>
-              <span>Logout</span>
-            </button>
-            
+            <img src={HomeIcon} alt="my profile" onClick={handleHome}/>
+            <img src={FeedIcon} alt="followers feed" onClick={handleFollowers}/>
+            <img src={LogoutIcon} alt="logout" onClick={handleLogout}/>
           </div>
         </div>
       }

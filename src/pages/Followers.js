@@ -2,6 +2,8 @@ import { useState, useEffect } from "react"
 import apiUtils from "../utils/api.utils.js"
 import UserCard from '../components/User/UserCard.js'
 import CommentCard from '../components/CommentCard'
+import Header from "../components/Header/Header.js"
+import './Followers.css'
 
 function Followers(){
 
@@ -23,17 +25,16 @@ function Followers(){
 
   return (
     <>
-      <div className="search-container">
-        {followersData.map((user)=>{
-          return <UserCard key={user._id} user={user}/>  
-        })}
+      <Header />
+      <div className="feed-contatiner">
+        <div className="feed-comments">
+          {
+            commentsData.map( (comment) => {
+              return <CommentCard key={comment._id} comment={comment} />
+            })
+          }
+        </div>
       </div>
-
-      {
-        commentsData.map( (comment) => {
-          return <CommentCard key={comment._id} comment={comment} />
-        })
-      }
   </>
   )
 

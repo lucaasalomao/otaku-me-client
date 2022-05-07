@@ -10,8 +10,6 @@ const UserCard = ({ user }) => {
     navigate(`/me/${user.username}`)
   }
 
-  console.log(user)
-
   return (
     <>
       <div className="user-card-container" onClick={handleProfileChange} >

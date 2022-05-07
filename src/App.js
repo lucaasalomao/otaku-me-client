@@ -8,14 +8,11 @@ import Profile from './pages/Profile/Profile'
 import Followers from "./pages/Followers"
 import Search from './pages/Search/Search'
 import PrivateOutlet from "./components/PrivateOutlet"
-import Header from "../src/components/Header/Header.js"
 
 function App() {
 
   return (
     <>
-      <Header />
-
       <Routes>
 
         <Route path='/' element={<SignIn/>} />

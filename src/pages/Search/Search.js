@@ -1,6 +1,7 @@
 import UserCard from '../../components/User/UserCard.js'
 import ListCard from '../../components/Lists/ListCard.js'
 import ItemCard from '../../components/Items/ItemCard.js'
+import Header from "../../components/Header/Header.js"
 import "./Search.css"
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from "react"
@@ -33,6 +34,7 @@ function Search(){
     
   return (
     <>
+      <Header />
       {searchedData &&
         <div className="search-container">
 
