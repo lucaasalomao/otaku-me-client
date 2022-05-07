@@ -71,20 +71,19 @@ const UserProfile = ({ userData, setListID }) => {
     }
   }
 
-  const verifyEditPermission = () => {
+  useEffect(()=>{
+    async function fetchData() {
+      await verifyFollowerStatus()
+    }
+    
+    await fetchData()
+
     const localUser = localStorage.getItem('username')
     if (username === localUser) {
       setAllowEdit(!allowEdit)
       setShowFollowButton(!showFollowButton)
     }
-  }
 
-  useEffect(()=>{
-    async function fetchData() {
-      await verifyFollowerStatus()
-    }
-    fetchData()
-    verifyEditPermission() 
   },[username])
   
   return (
