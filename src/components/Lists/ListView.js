@@ -48,8 +48,7 @@ const ListView = ({ listData, setListID }) => {
 
   const createNewItem = async () => {
     try {
-      const returnedItem = await apiUtils.createNewItemOnDB(listData._id,{"itemName": newItemName})
-      setNewItemID(returnedItem._id)
+      await apiUtils.createNewItemOnDB(listData._id,{"itemName": newItemName})
     } catch (error) {
       throw error.response
     }
