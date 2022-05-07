@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import apiUtils from "../utils/api.utils.js"
-import UserCard from '../components/User/UserCard.js'
 import CommentCard from '../components/CommentCard'
 import Header from "../components/Header/Header.js"
 import './Followers.css'
@@ -8,12 +7,10 @@ import './Followers.css'
 function Followers(){
 
   const [commentsData, setCommentsData] = useState([])
-  const [followersData, setFollowersData] = useState([])
 
   const getActivityData = async () => {
-    const { comments, followers } = await apiUtils.getUserFollowersInfoFromDB()
+    const { comments} = await apiUtils.getUserFollowersInfoFromDB()
     setCommentsData(comments)
-    setFollowersData(followers)
   }
 
   useEffect(()=>{

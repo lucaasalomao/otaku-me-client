@@ -133,7 +133,7 @@ const UserProfile = ({ userData, setListID }) => {
         </div>
         
         {
-          userData.following.length != 0 ?
+          userData.following.length !== 0 ?
           <>
             <h5>following</h5> 
             <div className="user-followers-container">

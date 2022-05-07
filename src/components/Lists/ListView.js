@@ -1,13 +1,11 @@
 import CommentCard from '../CommentCard'
 import { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import apiUtils from "../../utils/api.utils.js"
 import './ListView.css'
 import ItemImage from "../../../src/images/default-item.png"
 
 const ListView = ({ listData, setListID }) => {
-
-  const navigate = useNavigate()
 
   const { item } = useParams()
   const { username } = useParams()
@@ -19,7 +17,7 @@ const ListView = ({ listData, setListID }) => {
   const [addItem, setAddItem] = useState(false)
   const [addComment, setAddComment] = useState(false)
   const [allowEdit, setAllowEdit] = useState(false)
-  const [newItemID,setNewItemID] = useState("")
+ /*  const [newItemID,setNewItemID] = useState("") */
 
   const filterCommentsByItemID = (itemID) => {
     const selectedComments = listData.listComments.filter((comment)=>{
@@ -34,10 +32,11 @@ const ListView = ({ listData, setListID }) => {
     filterCommentsByItemID(selectedItem)
   }
 
-  const handleResetItemID = () => {
+/*   const handleResetItemID = () => {
     setCommentsList([...listData.listComments])
   }
-
+ */
+  
   useEffect(()=>{
     if (item) {
       filterCommentsByItemID(item)
@@ -45,7 +44,7 @@ const ListView = ({ listData, setListID }) => {
       setCommentsList([...listData.listComments])
     }
     verifyEditPermission()
-  },[listData])
+  },[listData,item])
 
   const createNewItem = async () => {
     try {
