@@ -23,7 +23,7 @@ const CommentCard = ({ comment }) => {
     if (comment.commentCreator.username === localUser) {
       setAllowDeletion(!allowDeletion)
     }
-  })
+  },[comment.commentCreator.username, allowDeletion])
 
   const handleNavigateToUser = async () => {
     navigate(`/me/${comment.commentCreator.username}`)

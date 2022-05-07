@@ -45,7 +45,7 @@ const FollowerTicket = ({ follower }) => {
 
   useEffect(()=>{
     verifyFollowerStatus()
-  },[])
+  })
 
   return (
     <>
